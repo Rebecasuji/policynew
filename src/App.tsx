@@ -145,11 +145,6 @@ function App() {
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #FFFFFF 0%, #F8F7F4 50%, #EDE7DE 100%)' }}>
       <Header />
-      {!SUPABASE_CONFIGURED && (
-        <div className="max-w-7xl mx-auto px-6 py-4 mt-24 bg-yellow-100 border border-yellow-300 text-yellow-900 rounded-xl shadow-sm text-sm">
-          You are running in static mode without a Supabase database configured. Policies are loaded from built-in static data to preserve the deployed site.
-        </div>
-      )}
       <main>
         {!selectedPolicy ? (
           <>
