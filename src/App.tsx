@@ -39,8 +39,8 @@ function App() {
       id: 'work-hours-2025',
       title: 'Employee Work Hours & Attendance Policy - 2025',
       category: 'HR',
-      description: 'Official work hours, attendance system, and salary deduction policies.',
-      content: 'Official shifts and attendance rules. Refer to company communications for full text.',
+      description: 'Official work hours, attendance system, and salary deduction policies effective from April 2025',
+      content: 'This policy applies to all employees who report to the office. It covers office timings, buffer time, biometric attendance, late arrival policies, half-day policies, overtime policies, and compliance enforcement.',
       file_url: null,
       icon: 'Clock',
       order: 1,
@@ -50,7 +50,7 @@ function App() {
       title: 'Office Timings & Buffer Time',
       category: 'Guidelines',
       description: 'Official shift timings and buffer period guidelines',
-      content: 'Shift 1: 09:30 AM – 06:30 PM; Shift 2: 10:00 AM – 07:00 PM; Shift 3: 11:00 AM – 08:00 PM.',
+      content: 'OFFICIAL SHIFTS: Shift 1: 09:30 AM – 06:30 PM, Shift 2: 10:00 AM – 07:00 PM, Shift 3: 11:00 AM – 08:00 PM. Each shift includes a one-hour break. Employees must report at designated shift start time with a 20-minute buffer period.',
       file_url: null,
       icon: 'Calendar',
       order: 2,
@@ -60,7 +60,7 @@ function App() {
       title: '100% Attendance Reward',
       category: 'HR',
       description: 'Bonus structure for perfect attendance',
-      content: 'Employees who maintain perfect attendance may receive a performance bonus as per policy.',
+      content: 'Every month, employees who arrive before their shift start time and leave after their shift end time every working day—without taking any leave—will receive a 5% bonus on their monthly salary. This applies only to employees with a salary not exceeding ₹25,000 per month.',
       file_url: null,
       icon: 'Trophy',
       order: 3,
@@ -70,7 +70,7 @@ function App() {
       title: 'Late Arrival Policy & Salary Deductions',
       category: 'HR',
       description: 'Late arrival guidelines and salary deduction structure',
-      content: 'Employees allowed up to 3 late arrivals per month without deduction; further late arrivals may incur deductions.',
+      content: 'Employees are allowed up to 3 late arrivals per month without salary deduction. From the 4th to 10th late arrival, deduction is based on hourly wage loss. Late arrivals exceeding 10 times result in half-day salary deduction retroactively.',
       file_url: null,
       icon: 'AlertCircle',
       order: 4,
@@ -80,7 +80,7 @@ function App() {
       title: 'Half-Day Policy',
       category: 'SOP',
       description: 'Guidelines for half-day attendance',
-      content: 'A half-day applies if arrival is after 4 hours from shift start.',
+      content: 'A half-day will be applied if an employee arrives after 4 hours from their shift start time. Salary will be calculated based on hours worked if less than 5 hours, which is the minimum for half-day salary.',
       file_url: null,
       icon: 'Clock',
       order: 5,
@@ -90,7 +90,7 @@ function App() {
       title: 'Overtime Policy',
       category: 'SOP',
       description: 'Overtime calculation and approval process',
-      content: 'Overtime calculated after 9 hours of work and must be approved by reporting manager.',
+      content: 'Employees are not encouraged to work beyond shift end times unless required. If requested by the reporting manager, overtime will be calculated only after 9 hours of work from the punched-in time. Overtime will be considered only if approved by the reporting manager via email or Cliq.',
       file_url: null,
       icon: 'Zap',
       order: 6,
@@ -100,7 +100,7 @@ function App() {
       title: 'Compliance & Enforcement',
       category: 'Compliance',
       description: 'Policy compliance requirements and dispute resolution',
-      content: 'Employees must adhere to company policies; disputes should be addressed to HR.',
+      content: 'Employees must adhere to these policies to maintain discipline and professionalism. Any disputes regarding attendance, salary deductions, or overtime must be addressed with HR.',
       file_url: null,
       icon: 'CheckCircle',
       order: 7,
@@ -145,6 +145,11 @@ function App() {
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #FFFFFF 0%, #F8F7F4 50%, #EDE7DE 100%)' }}>
       <Header />
+      {!SUPABASE_CONFIGURED && (
+        <div className="max-w-7xl mx-auto px-6 py-4 mt-24 bg-yellow-100 border border-yellow-300 text-yellow-900 rounded-xl shadow-sm text-sm">
+          You are running in static mode without a Supabase database configured. Policies are loaded from built-in static data to preserve the deployed site.
+        </div>
+      )}
       <main>
         {!selectedPolicy ? (
           <>
